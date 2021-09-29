@@ -61,10 +61,10 @@
       { "devDependencies": ["**/*.spec.js"] }
     ],
     "prettier/prettier": "error"
-  },
-  "settings": {
-      "import/resolver": {
-          "typescript": {}
-      }
   }
+  // "settings": {
+  //     "import/resolver": {
+  //         "typescript": {}
+  //     }
+  // }
 }

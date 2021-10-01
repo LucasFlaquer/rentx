@@ -42,7 +42,7 @@
     "no-empty-function": "off",
     "lines-between-class-members": "off",
     "import/extensions": [
-      "error",
+      "off",
       "ignorePackages",
       {
         "ts": "never"

@@ -5,14 +5,17 @@ services:
     image: postgres
     container_name: database_ignite
     restart: always
-    ports: 
-      - 5433:5432 ## precisei colocar 5433 ao inves da 5432, pois o container do postgres não estava aceitando a porta 5432 que era usada pelo postgres local
+    ports:
+      - 5433:5433 ## precisei colocar 5433 ao inves da 5432, pois o container do postgres não estava aceitando a porta 5432 que era usada pelo postgres local
+    expose:
+      - 5433
     environment:
       - POSTGRES_USER=docker
       - POSTGRES_PASSWORD=ignite
       - POSTGRES_DB=rentx
     volumes:
       - pgdata:/data/postgres
+    command: -p 5433
 
 
   app:

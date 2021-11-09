@@ -33,3 +33,6 @@
 
 ### docker-compose start
   inicia o docker compose
+
+
+  https://newbedev.com/changing-a-postgres-containers-server-port-in-docker-compose

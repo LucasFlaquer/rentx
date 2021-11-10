@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Rentax Documentation",
-    "description": "Rentax API documentation",
+    "title": "Rentx Documentation",
+    "description": "Rentx API documentation",
     "version": "1.0.0",
     "contact": {
       "email": "lucas.flaquer@gmail.com"
@@ -75,6 +75,71 @@
               }
             }
           }
+        }
+      }
+    },
+    "/categories/import": {
+      "post": {
+        "tags": ["categories"],
+        "summary": "Upload new Categories",
+        "desciption": "Upload new Categories",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties":{
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "success"
+
+          }
+        }
+      }
+    },
+    "/specifications": {
+      "post": {
+        "tags": ["specifications"],
+        "summary": "Create a Specification",
+        "description": "Create a Specification",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Specifications"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Specification already exists!"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Specifications": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
         }
       }
     }

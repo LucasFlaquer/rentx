@@ -12,7 +12,6 @@ export class CreateUserUseCase {
 
   async execute({
     name,
-    username,
     password,
     email,
     driver_license,
@@ -21,7 +20,6 @@ export class CreateUserUseCase {
       email,
       driver_license,
       password,
-      username,
       name,
     });
   }

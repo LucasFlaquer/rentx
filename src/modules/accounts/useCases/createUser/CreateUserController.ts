@@ -17,10 +17,14 @@ export class CreateUserController {
     request: ICreateUserRequest,
     response: Response
   ): Promise<Response> {
-    const { name, email, password, driver_license } = request.body;
-    const createUserUseCase = container.resolve(CreateUserUseCase);
-    const userData = { name, email, password, driver_license };
-    await createUserUseCase.execute(userData);
-    return response.status(201).send();
+    try {
+      const { name, email, password, driver_license } = request.body;
+      const createUserUseCase = container.resolve(CreateUserUseCase);
+      const userData = { name, email, password, driver_license };
+      await createUserUseCase.execute(userData);
+      return response.status(201).send();
+    } catch (error) {
+      return response.status(400).json({ error: error.message });
+    }
   }
 }

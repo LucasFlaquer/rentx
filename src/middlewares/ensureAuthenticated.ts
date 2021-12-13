@@ -12,7 +12,7 @@ export async function ensureAuthenticated(
   request: Request,
   response: Response,
   next: NextFunction
-) {
+): Promise<void> {
   const authHeader = request.headers.authorization;
   if (!authHeader) throw new AppError("JWT token is missing", 401);
 
@@ -27,6 +27,9 @@ export async function ensureAuthenticated(
     const user = await usersRepository.findById(user_id);
     if (!user) throw new AppError("User not found", 401);
 
+    request.user = {
+      id: user_id,
+    };
     next();
   } catch (error) {
     throw new AppError("Invalid JWT token", 401);

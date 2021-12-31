@@ -1,6 +1,8 @@
-/*
- * For a detailed explanation regarding each configuration property and type check, visit:
- * https://jestjs.io/docs/configuration
+import { pathsToModuleNameMapper } from "ts-jest/utils";
+
+import { paths } from "./pathAliases.json";
+/** se quiser usar os paths direto do tsconfig tem que REMOVER OS COMENTARIOS NO TSCONFIG
+ * e usar o pathsToModuleNameMapper
  */
 
 export default {
@@ -81,7 +83,9 @@ export default {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: pathsToModuleNameMapper(paths, {
+    prefix: "<rootDir>/src/",
+  }),
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],

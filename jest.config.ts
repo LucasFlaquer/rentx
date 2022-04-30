@@ -1,4 +1,4 @@
-import { pathsToModuleNameMapper } from "ts-jest/utils";
+import { pathsToModuleNameMapper } from "ts-jest";
 
 import { paths } from "./pathAliases.json";
 /** se quiser usar os paths direto do tsconfig tem que REMOVER OS COMENTARIOS NO TSCONFIG
